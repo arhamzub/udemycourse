@@ -104,7 +104,7 @@ app.get('/weather',(req,res)=>{
 
     }
 
-    geo(req.query.address,(error,{latitude,longitude,location}={})=>{
+    geo(req.query.address,(error,{latitude,longitude,location,continent}={})=>{
 
         if(error){
             return res.send({error})
@@ -117,6 +117,7 @@ app.get('/weather',(req,res)=>{
              res.send({
         forcast : forcastdata,
         location,
+        continent,
         address: req.query.address
 
     })
